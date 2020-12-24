@@ -1,6 +1,6 @@
 <?php
 
-// kimlerin takip etmediğini sonuc.htm dosyasına yazdırır
+// print list to result.htm
 
 require_once('vendor/autoload.php');
 use Abraham\TwitterOAuth\TwitterOAuth;
@@ -29,7 +29,7 @@ foreach ($unfollowers as $key => $value) {
     $full_name =  $user_array->name;
     $followers_count = $user_array->followers_count;
 
-    $fp = fopen('sonuc.htm', 'a');
-    fwrite($fp, $full_name . " (<a href='https://twitter.com/$user_name'>@$user_name</a>) seni takip etmiyor. Takipçi sayısı: <b>$followers_count</b><br>");
+    $fp = fopen('result.htm', 'a');
+    fwrite($fp, $full_name . " (<a href='https://twitter.com/$user_name'>@$user_name</a>) is not following you back. Follower Count: <b>$followers_count</b><br>");
     fclose($fp);
 }
